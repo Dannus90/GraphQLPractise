@@ -1,0 +1,4 @@
+#Items listed below are going to be ignored by git 
+
+#Dependenices
+node_modules/
