@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLList, GraphQLInt } from "graphql";
 import { BookType } from "./BookType.js";
-import { authors, books } from "../data/fakeData.js"
+import { authors, books } from "../../data/fakeData.js";
 import { AuthorType } from "./AuthorType.js";
 
 export const RootQueryType = new GraphQLObjectType({

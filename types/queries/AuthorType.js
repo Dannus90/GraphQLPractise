@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLNonNull, GraphQLList } from "graphql"
-import { books } from "../data/fakeData.js"
+import { books } from "../../data/fakeData.js"
 import { BookType } from "./BookType.js"
 
 export const AuthorType = new GraphQLObjectType({
