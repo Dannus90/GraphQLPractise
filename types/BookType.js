@@ -1,4 +1,6 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt, GraphQLNonNull } from "graphql"
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLNonNull } from "graphql"
+import { authors } from "../data/fakeData.js"
+import { AuthorType } from "./AuthorType.js"
 
 export const BookType = new GraphQLObjectType({
     name: "Book",
@@ -7,5 +9,10 @@ export const BookType = new GraphQLObjectType({
         id: { type: GraphQLNonNull(GraphQLInt) },
         name: { type: GraphQLNonNull(GraphQLString) },
         authorId: { type: GraphQLNonNull(GraphQLInt) },
+        author: { 
+            type: AuthorType,
+            resolve: (book) => {
+                return authors.find(author => author.id === book.authorId)
+            }}
     })
 })
