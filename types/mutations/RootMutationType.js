@@ -1,6 +1,7 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLInt } from "graphql";
-import { books } from "../../data/fakeData.js";
+import { authors, books } from "../../data/fakeData.js";
 import { BookType } from "../queries/BookType.js";
+import { AuthorType } from "../queries/AuthorType.js";
 
 export const RootMutationType = new GraphQLObjectType({
     name: "Mutation",
@@ -18,6 +19,18 @@ export const RootMutationType = new GraphQLObjectType({
                books.push(book)
                return book
            }
-       } 
+       },
+       addAuthor: {
+        type: AuthorType,
+        description: "Adds Author",
+        args: {
+            name: { type: GraphQLNonNull(GraphQLString) },
+        },
+        resolve: (parent, args) => {
+            const author = { id: authors.length, name: args.name, authorId: args.authorId }
+            authors.push(author)
+            return author
+        }
+    } 
     })
 })
