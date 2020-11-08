@@ -2,7 +2,7 @@ import { GraphQLSchema, GraphQLObjectType, GraphQLString } from "graphql"
 
 export const basicSchema = new GraphQLSchema({
     query: new GraphQLObjectType({
-        name: "Hello World!",
+        name: "HelloWorld",
         fields: () => ({
         message: { 
             type: GraphQLString,
